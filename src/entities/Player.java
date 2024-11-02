@@ -1,15 +1,9 @@
 package entities;
 
-import static utilz.Constants.Directions.*;
 import static utilz.Constants.PlayerConstants.*;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.io.InputStream;
-
-import javax.imageio.ImageIO;
-
 import utilz.LoadSave;
 
 public class Player extends Entity{
@@ -22,8 +16,8 @@ public class Player extends Entity{
 	private boolean left, up, right, down;
 	private float playerSpeed= 2.0f;
 
-	public Player(float x, float y) {
-		super(x, y);
+	public Player(float x, float y,int width, int height) {
+		super(x, y, width, height);
 		loadAnimation();
 	}
 	
@@ -95,10 +89,8 @@ public class Player extends Entity{
 	}
 
 	private void loadAnimation() {
-		
-		
 			BufferedImage img=LoadSave.getSpriteAtlas(LoadSave.PLAYER_ATLAS);
-				
+			
 			animations=new BufferedImage[9][6];
 			
 			for(int j=0;j<animations.length;j++) {
